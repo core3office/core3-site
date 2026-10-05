@@ -1,0 +1,29 @@
+{
+  "name": "maria-flora",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --disable-warning=ExperimentalWarning node_modules/next/dist/bin/next dev --turbopack -p 3000",
+    "build": "node --disable-warning=ExperimentalWarning node_modules/next/dist/bin/next build --turbopack",
+    "start": "node --disable-warning=ExperimentalWarning node_modules/next/dist/bin/next start -p 3000",
+    "clear-demo": "node --env-file=.env.local scripts/clear-demo.mjs",
+    "migrate:supabase": "node --env-file=.env.local --disable-warning=ExperimentalWarning scripts/migrate-sqlite-to-supabase.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.2",
+    "framer-motion": "^14.0.0",
+    "next": "^15.5.27",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  }
+}

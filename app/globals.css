@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f7f0e6;
+  --color-ivory: #fbf7f1;
+  --color-sand: #eadcc8;
+  --color-blush: #ecd3c6;
+  --color-ink: #1c1916;
+  --color-ink-soft: #4a433d;
+  --color-muted: #7c7268;
+  --color-terra: #a8573f;
+  --color-terra-dark: #8a4431;
+  --color-sage: #7a8767;
+  --color-line: #d9cbb8;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-ink);
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Переливающийся тёплый фон сайта */
+.bg-flow {
+  background:
+    radial-gradient(60vmax 60vmax at 15% 10%, #f3dccb 0%, transparent 60%),
+    radial-gradient(55vmax 55vmax at 85% 25%, #efe2c9 0%, transparent 60%),
+    radial-gradient(70vmax 70vmax at 50% 95%, #ead2c4 0%, transparent 60%),
+    linear-gradient(160deg, #fbf6ee, #f5ebdd 50%, #f8eee6);
+  background-size: 160% 160%;
+  animation: flow 22s ease-in-out infinite alternate;
+}
+@keyframes flow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 60% 40%; }
+  100% { background-position: 100% 100%; }
+}
+
+.sun-spin {
+  animation: spin 40s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  background: var(--color-terra);
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-flow, .sun-spin { animation: none; }
+}
+
+/* Узкая полоса прокрутки в колонках CRM */
+.thin-scroll { scrollbar-width: thin; scrollbar-color: #d6c6b1 transparent; }
